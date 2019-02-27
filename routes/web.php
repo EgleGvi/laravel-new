@@ -11,7 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+use Illuminate\Support\Facades\Route;
+
+//pagrindinis puslapis
+Route::get('/books', 'BooksController@index');
+
+Route::get('/authors', 'AuthorsController@index');
+Route::get('books/create', 'BooksController@create');
+Route::get('authors/create', 'AuthorsController@create');
+Route::post('books', 'BooksController@store');
+Route::post('authors', 'AuthorsController@store');
+
+Route::get('books/{book}/edit', 'BooksController@edit');
+Route::put('books/{book}', 'BooksController@update');
+Route::get('authors/{author}/edit', 'AuthorsController@edit');
+Route::put('authors/{author}', 'AuthorsController@update');
+
+Route::delete('books/{book}', 'BooksController@destroy');
+
 
